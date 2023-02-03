@@ -1,18 +1,34 @@
 """
-Calcualte area of a rectangle.
-If width or hight is not positive interger number 
-returns zero.
-Parameters:
+Information
 -----------
-width: int
-    Width of the rectangle.
-height: int
-    Hight of the rectangle
-Return
-------
-outs: int
-    Calculate area and return the result.
+COPY RIGHT by Saeed Gholami @ 2023
+Email: saeed.ghollami@gmail.com
+Github: ostadsgo
+Web: ostadsgo.github.io
+
+Level
+-----
+Beginners
+
+
+Description
+-----------
+Say hello to given a name.
+
+Examples
+-------
+>>> say_hello("John")
+Hello, John
+
+Requirements
+------------
+  - Variables
+
+Resources
+---------
+
 """
+
 
 def say_hello(name):
     return 1

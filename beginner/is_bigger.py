@@ -1,43 +1,27 @@
 """
-Get tow number and compare each other.
-Parameters:
+Description
+------------
+Compare two integers x and y togeter
+if x bigger than y return 1
+if x smaller than y return -1
+if x and y were equal return 0
+
+Reuirements
 -----------
-x: int
-    An integer number
-y: int
-    An integer number
-Return
-------
-outs: int
-    If x bigger than y return True otherwise return False
+  - if statement
+  - comparession operator
 """
 
-def add_one(x, y):
+
+def is_bigger(x, y):
     pass
-        
-            
+
 
 # -----------------------------------
-def run_test():
-    fn_name = "add_one"
-    # Tests
-    tests = {
-        "test#1": {"param": (2,3), "result": False},
-        "test#2": {"param": (0, 0), "result": False},
-        "test#3": {"param": (-1,-5), "result": True},
-        "test#4": {"param": (2,1), "result": True},
-    }
-
-    for name, value in tests.items():
-        param = value["param"] if value.get("param") is not None else ()
-        result = value.get("result")
-        r = add_one(*param)
-        if r == result:
-            print(f"✅{name.upper()} passed.")
-        else:
-            print(f"❌{name.upper()} failed.")
-            print(f"{fn_name}{param} Expect {result} but got {r}")
-        
-
 if __name__ == "__main__":
-    run_test()
+    from tests import assert_equals
+
+    assert_equals(is_bigger, (0, 0), False)
+    assert_equals(is_bigger, (-1, -5), True)
+    assert_equals(is_bigger, (2, 3), False)
+    assert_equals(is_bigger, (2, 1), True)
