@@ -1,6 +1,3 @@
-# -----------------------------------
-# Test area (Do not touch this area)
-# -----------------------------------
 class Color:
     SUCC = "\33[92m"
     FAIL = "\033[91m"
@@ -13,7 +10,7 @@ class Message:
     SUCC_ICON = "✅"
     FAILED_ICON = "❌"
     SUCC = "{}{}Test passed{}."
-    FAILED = "--> {}{} Expect {}{}{} but got {}{}{}🤦"
+    FAILED = "=> {}{} Expects {}{}{} but got {}{}{}🤦"
 
 
 def assert_equals(fn, param, expect):
@@ -34,7 +31,4 @@ def assert_equals(fn, param, expect):
     )
     print(f"{Message.FAILED_ICON} Test Failed.")
     print(m)
-
-
-
 
