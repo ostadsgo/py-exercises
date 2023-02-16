@@ -44,14 +44,8 @@ def say_hello(name):
 # -----------------------------------
 if __name__ == "__main__":
     from tests import assert_equals
+
     assert_equals(say_hello, ("john",), "Hello, john")
     assert_equals(say_hello, ("",), "Hello, ")
     assert_equals(say_hello, ("0",), "Hello, 0")
     assert_equals(say_hello, ("John",), "Hello, John")
-
-
-
-
-
-
-

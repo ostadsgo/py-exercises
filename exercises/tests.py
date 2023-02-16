@@ -9,7 +9,7 @@ class Color:
 class Message:
     SUCC_ICON = "✅"
     FAILED_ICON = "❌"
-    SUCC = "{}{}Test passed{}."
+    SUCC = "{}{} Test passed{}."
     FAILED = "=> {}{} Expects {}{}{} but got {}{}{}🤦"
 
 
@@ -27,8 +27,7 @@ def assert_equals(fn, param, expect):
         Color.ENDC,
         Color.FAIL,
         result,
-        Color.ENDC
+        Color.ENDC,
     )
     print(f"{Message.FAILED_ICON} Test Failed.")
     print(m)
-

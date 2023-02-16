@@ -42,7 +42,9 @@ Resources
 """
 
 def area(w, h):
-    pass
+    if w <= 0 or h <= 0:
+        return 0
+    return w * h
 # -----------------------------------
 #    Do not touch this section
 # -----------------------------------
