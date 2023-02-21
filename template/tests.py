@@ -1,9 +1,7 @@
-# -----------------------------------
-# Test area (Do not touch this area)
-# -----------------------------------
 class Color:
     SUCC = "\33[92m"
     FAIL = "\033[91m"
+    WARNING = "\033[93m"
     ENDC = "\033[0m"
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
@@ -12,29 +10,31 @@ class Color:
 class Message:
     SUCC_ICON = "✅"
     FAILED_ICON = "❌"
-    SUCC = "{}{}Test passed{}."
-    FAILED = "--> {}{}{} Expect {}{}{} but got {}{}{}🤦"
+    SUCC = "{}{} Test passed{}."
+    FAILED = "=> {}{}{}{} Expects {}{}{} but got {}{}{}"
 
 
-def assert_equals(fn, param, expect):
+def assert_equals(fn, param: tuple, expect: tuple) -> bool:
     result = fn(*param)
+    # remove `,` at end of param tuple if the tuple has only one element.
+    formatted_param = str(param)[:-2] + ")" if len(param) == 1 else param
+
     if result == expect:
-        m = Message.SUCC.format(Message.SUCC_ICON, Color.SUCC, Color.ENDC)
-        print(m)
+        output = Message.SUCC.format(Message.SUCC_ICON, Color.SUCC, Color.ENDC)
+        print(output)
         return True
-    m = Message.FAILED.format(
+    output = Message.FAILED.format(
+        Color.WARNING,
         fn.__name__,
-        param,
-        Message.FAILED_ICON,
+        formatted_param,
+        Color.ENDC,
         Color.SUCC,
         expect,
         Color.ENDC,
         Color.FAIL,
         result,
-        Color.ENDC
+        Color.ENDC,
     )
-    print(m)
-
-
-
-
+    print(f"{Message.FAILED_ICON} Test Failed.")
+    print(output)
+    return False
